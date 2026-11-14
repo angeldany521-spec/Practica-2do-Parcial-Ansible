@@ -1,0 +1,38 @@
+---
+- name: Parcial Ansible - Automatización en servidores Docker
+  hosts: docker
+  gather_facts: yes
+  tasks:
+    - name: Mostrar el nombre del host
+      ansible.builtin.debug:
+        msg: "El nombre del host es: {{ ansible_hostname }}"
+
+    - name: Mostrar el sistema operativo
+      ansible.builtin.debug:
+        msg: "El sistema operativo es: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Crear el directorio /tmp/ansible-demo
+      ansible.builtin.file:
+        path: /tmp/ansible-demo
+        state: directory
+
+    - name: Escribir nombre del servidor y sistema operativo en info.txt
+      ansible.builtin.copy:
+        dest: /tmp/ansible-demo/info.txt
+        content: |
+          Servidor: {{ ansible_hostname }}
+          Sistema Operativo: {{ ansible_distribution }} {{ ansible_distribution_version }}
+
+    - name: Crear directorios mediante loop
+      ansible.builtin.file:
+        path: "/tmp/ansible-demo/{{ item }}"
+        state: directory
+      loop:
+        - logs
+        - backup
+        - config
+
+    - name: Mostrar mensaje únicamente cuando el sistema operativo sea Ubuntu
+      ansible.builtin.debug:
+        msg: "¡Verificación confirmada! Este servidor opera con Ubuntu."
+      when: ansible_distribution == 'Ubuntu'
