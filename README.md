@@ -31,4 +31,5 @@ ansible-playbook -i inventory.ini playbook.yml
 ```
 
 ##Captura de la ejecución
-<img width="872" height="586" alt="image" src="https://github.com/user-attachments/assets/89a4c963-cc54-4d41-a461-38eb9a5ded4b" />
+<img width="1043" height="431" alt="image" src="https://github.com/user-attachments/assets/4272ec62-8e25-4fac-9f0a-b6c121b00841" />
+
