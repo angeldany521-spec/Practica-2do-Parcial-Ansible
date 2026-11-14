@@ -28,6 +28,7 @@ ansible docker -i inventory.ini -m ping
 
 # 5. Ejecutar la automatización completa con el Playbook
 ansible-playbook -i inventory.ini playbook.yml
+```
 
 ##Captura de la ejecución
 <img width="872" height="586" alt="image" src="https://github.com/user-attachments/assets/89a4c963-cc54-4d41-a461-38eb9a5ded4b" />
